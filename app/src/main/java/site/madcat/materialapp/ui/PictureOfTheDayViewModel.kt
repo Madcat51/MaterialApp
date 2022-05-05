@@ -10,7 +10,9 @@ import kotlinx.coroutines.launch
 import site.madcat.materialapp.domain.NasaRepo
 import java.io.IOException
 
-class MainViewModel(private val repo: NasaRepo) :ViewModel() {
+class MainViewModel(private val repo: NasaRepo) : ViewModel() {
+    private val _title: MutableSharedFlow<String> = MutableSharedFlow()
+    val title: Flow<String> = _title
 
     private val _loading = MutableStateFlow(false)
     val loading: Flow<Boolean> = _loading
@@ -27,7 +29,8 @@ class MainViewModel(private val repo: NasaRepo) :ViewModel() {
             try {
                 val url = repo.pictureOfTheDay().url
                 _image.emit(url)
-
+                val titlePicture = repo.pictureOfTheDay().title
+                _title.emit(titlePicture)
             } catch (exc: IOException) {
                 _error.emit("Network error")
             }
@@ -37,7 +40,8 @@ class MainViewModel(private val repo: NasaRepo) :ViewModel() {
 
 
 }
-class MainViewModelFactory(private val repo:NasaRepo) : ViewModelProvider.Factory {
+
+class MainViewModelFactory(private val repo: NasaRepo) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T = MainViewModel(repo) as T
 
 }

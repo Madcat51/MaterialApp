@@ -43,9 +43,15 @@ class PictureOfTheDayFragment : Fragment(R.layout.fragment_first) {
                 }
 
             }
-
         }
+        viewLifecycleOwner.lifecycle.coroutineScope.launchWhenStarted {
+            viewModel.title.collect { titlePicture ->
+                titlePicture?.let {
+                    binding.textTextView.text=(it)
+                }
 
+            }
+        }
     }
 }
 

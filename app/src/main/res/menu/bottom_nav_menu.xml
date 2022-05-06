@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_picture_of_the_day"
+        android:icon="@drawable/ic_baseline_picture_in_picture_24"
+        android:title="@string/title_picture_of_the_day" />
+
+    <item
+        android:id="@+id/navigation_other_fragment"
+        android:icon="@drawable/ic_baseline_browser_not_supported_24"
+        android:title="@string/title_other_fragment" />
+</menu>

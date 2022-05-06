@@ -14,9 +14,6 @@ class MainViewModel(private val repo: NasaRepo) : ViewModel() {
     private val _title: MutableSharedFlow<String> =MutableSharedFlow()
     val title: Flow<String> =_title
 
-    private val _loading=MutableStateFlow(false)
-    val loading: Flow<Boolean> =_loading
-
     private val _image: MutableStateFlow<String?> =MutableStateFlow(null)
     val image: Flow<String?> =_image
 
@@ -24,7 +21,6 @@ class MainViewModel(private val repo: NasaRepo) : ViewModel() {
     val error: Flow<String> =_error
 
     fun requestPictureOfTheDay() {
-        _loading.value=true
         viewModelScope.launch {
             try {
                 val url=repo.pictureOfTheDay().url
@@ -32,13 +28,10 @@ class MainViewModel(private val repo: NasaRepo) : ViewModel() {
                 val titlePicture=repo.pictureOfTheDay().title
                 _title.emit(titlePicture)
             } catch (exc: IOException) {
-                _error.emit("Network error")
+                _error.emit("Error")
             }
-            _loading.emit(false)
         }
     }
-
-
 }
 
 class MainViewModelFactory(private val repo: NasaRepo) : ViewModelProvider.Factory {

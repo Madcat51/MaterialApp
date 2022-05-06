@@ -11,11 +11,11 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.coroutineScope
 import coil.load
 import site.madcat.materialapp.R
-import site.madcat.materialapp.databinding.FragmentFirstBinding
+import site.madcat.materialapp.databinding.FragmentPictureOfTheDayBinding
 import site.madcat.materialapp.domain.NasaRepoImpl
 
 
-class PictureOfTheDayFragment : Fragment(R.layout.fragment_first) {
+class PictureOfTheDayFragment : Fragment(R.layout.fragment_picture_of_the_day) {
 
     private val viewModel: MainViewModel by viewModels {
         MainViewModelFactory(NasaRepoImpl())
@@ -30,15 +30,13 @@ class PictureOfTheDayFragment : Fragment(R.layout.fragment_first) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding=FragmentFirstBinding.bind(view)
+        val binding=FragmentPictureOfTheDayBinding.bind(view)
 
         binding.searchWikkiButton.setOnClickListener{
             val intent: Intent
             intent=Intent(Intent.ACTION_VIEW, Uri.parse("https://ru.wikipedia.org/w/index.php?search="+binding.inputWikiTextEditText.text ))
             startActivity(intent)
-
         }
-
 
         viewLifecycleOwner.lifecycle.coroutineScope.launchWhenStarted {
             viewModel.error.collect {
@@ -51,20 +49,17 @@ class PictureOfTheDayFragment : Fragment(R.layout.fragment_first) {
                 url?.let {
                     binding.pictureOfDayImageview.load(it)
                 }
-
-
-
             }
         }
+
         viewLifecycleOwner.lifecycle.coroutineScope.launchWhenStarted {
             viewModel.title.collect { titlePicture ->
                 titlePicture.let {
                     binding.titleTextPictureEditText.setText(it)
                 }
-
             }
-
         }
+
     }
 }
 

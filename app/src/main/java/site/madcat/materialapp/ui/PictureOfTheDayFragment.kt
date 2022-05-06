@@ -39,6 +39,7 @@ class PictureOfTheDayFragment : Fragment(R.layout.fragment_first) {
 
         }
 
+
         viewLifecycleOwner.lifecycle.coroutineScope.launchWhenStarted {
             viewModel.error.collect {
                 Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()

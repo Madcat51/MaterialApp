@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.coroutineScope
@@ -32,11 +33,25 @@ class PictureOfTheDayFragment : Fragment(R.layout.fragment_picture_of_the_day) {
         super.onViewCreated(view, savedInstanceState)
         val binding=FragmentPictureOfTheDayBinding.bind(view)
 
-        binding.searchWikkiButton.setOnClickListener{
+        binding.searchWikkiButton.setOnClickListener {
             val intent: Intent
-            intent=Intent(Intent.ACTION_VIEW, Uri.parse("https://ru.wikipedia.org/w/index.php?search="+binding.inputWikiTextEditText.text ))
+            intent=Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://ru.wikipedia.org/w/index.php?search=" + binding.inputWikiTextEditText.text)
+            )
             startActivity(intent)
         }
+
+        binding.beforeYesterdayChip.setOnClickListener {
+
+        }
+        binding.yesterdayChip.setOnClickListener {
+
+        }
+        binding.todayChip.setOnClickListener {
+            viewModel.requestPictureOfTheDay()
+        }
+
 
         viewLifecycleOwner.lifecycle.coroutineScope.launchWhenStarted {
             viewModel.error.collect {

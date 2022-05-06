@@ -5,4 +5,7 @@
     <string name="wikibutton">Отправить</string>
     <string name="title_picture_of_the_day">Фото дня</string>
     <string name="title_other_fragment">Другой фрагмент</string>
+    <string name="today">Сегодня</string>
+    <string name="yesterday">Вчера</string>
+    <string name="before_yesterday">Позавчера</string>
 </resources>

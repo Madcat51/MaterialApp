@@ -1,5 +1,8 @@
 package site.madcat.materialapp.ui
 
+import android.content.Intent
+import android.net.Uri
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -32,6 +35,7 @@ class MainViewModel(private val repo: NasaRepo) : ViewModel() {
             }
         }
     }
+
 }
 
 class MainViewModelFactory(private val repo: NasaRepo) : ViewModelProvider.Factory {

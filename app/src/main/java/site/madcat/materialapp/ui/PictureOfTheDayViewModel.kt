@@ -10,24 +10,27 @@ import kotlinx.coroutines.launch
 import site.madcat.materialapp.domain.NasaRepo
 import java.io.IOException
 
-class MainViewModel(private val repo: NasaRepo) :ViewModel() {
+class MainViewModel(private val repo: NasaRepo) : ViewModel() {
+    private val _title: MutableSharedFlow<String> =MutableSharedFlow()
+    val title: Flow<String> =_title
 
-    private val _loading = MutableStateFlow(false)
-    val loading: Flow<Boolean> = _loading
+    private val _loading=MutableStateFlow(false)
+    val loading: Flow<Boolean> =_loading
 
-    private val _image: MutableStateFlow<String?> = MutableStateFlow(null)
-    val image: Flow<String?> = _image
+    private val _image: MutableStateFlow<String?> =MutableStateFlow(null)
+    val image: Flow<String?> =_image
 
-    private val _error: MutableSharedFlow<String> = MutableSharedFlow()
-    val error: Flow<String> = _error
+    private val _error: MutableSharedFlow<String> =MutableSharedFlow()
+    val error: Flow<String> =_error
 
     fun requestPictureOfTheDay() {
-        _loading.value = true
+        _loading.value=true
         viewModelScope.launch {
             try {
-                val url = repo.pictureOfTheDay().url
+                val url=repo.pictureOfTheDay().url
                 _image.emit(url)
-
+                val titlePicture=repo.pictureOfTheDay().title
+                _title.emit(titlePicture)
             } catch (exc: IOException) {
                 _error.emit("Network error")
             }
@@ -37,7 +40,8 @@ class MainViewModel(private val repo: NasaRepo) :ViewModel() {
 
 
 }
-class MainViewModelFactory(private val repo:NasaRepo) : ViewModelProvider.Factory {
-    override fun <T : ViewModel> create(modelClass: Class<T>): T = MainViewModel(repo) as T
+
+class MainViewModelFactory(private val repo: NasaRepo) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T=MainViewModel(repo) as T
 
 }

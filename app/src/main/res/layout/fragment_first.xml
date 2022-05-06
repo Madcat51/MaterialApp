@@ -7,11 +7,27 @@
     <ImageView
         android:id="@+id/picture_of_day_imageview"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"/>
 
-    <TextView
-        android:id="@+id/text_textView"
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/title_text_picture_edit_text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_wiki_text_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"  />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/search_wikki_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:text="@string/wikibutton" />
 
 </LinearLayout>

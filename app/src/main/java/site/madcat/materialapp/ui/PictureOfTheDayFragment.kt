@@ -1,6 +1,8 @@
 package site.madcat.materialapp.ui
 
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -28,7 +30,14 @@ class PictureOfTheDayFragment : Fragment(R.layout.fragment_first) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentFirstBinding.bind(view)
+        val binding=FragmentFirstBinding.bind(view)
+
+        binding.searchWikkiButton.setOnClickListener{
+            val intent: Intent
+            intent=Intent(Intent.ACTION_VIEW, Uri.parse("https://ru.wikipedia.org/w/index.php?search="+binding.inputWikiTextEditText.text ))
+            startActivity(intent)
+
+        }
 
         viewLifecycleOwner.lifecycle.coroutineScope.launchWhenStarted {
             viewModel.error.collect {
@@ -42,10 +51,19 @@ class PictureOfTheDayFragment : Fragment(R.layout.fragment_first) {
                     binding.pictureOfDayImageview.load(it)
                 }
 
+
+
+            }
+        }
+        viewLifecycleOwner.lifecycle.coroutineScope.launchWhenStarted {
+            viewModel.title.collect { titlePicture ->
+                titlePicture.let {
+                    binding.titleTextPictureEditText.setText(it)
+                }
+
             }
 
         }
-
     }
 }
 

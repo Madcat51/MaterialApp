@@ -13,6 +13,9 @@ import java.io.IOException
 
 
 class MainViewModel(private val repo: NasaRepo) : ViewModel() {
+    private val _explanation: MutableSharedFlow<String> =MutableSharedFlow()
+    val explanation :Flow<String> =_explanation
+
     private val _title: MutableSharedFlow<String> =MutableSharedFlow()
     val title: Flow<String> =_title
 
@@ -29,6 +32,8 @@ class MainViewModel(private val repo: NasaRepo) : ViewModel() {
                 _image.emit(url)
                 val titlePicture=repo.pictureOfTheDay(day).title
                 _title.emit(titlePicture)
+                val explanation=repo.pictureOfTheDay(day).explanation
+                _explanation.emit(explanation)
             } catch (exc: IOException) {
                 _error.emit("Error")
             }

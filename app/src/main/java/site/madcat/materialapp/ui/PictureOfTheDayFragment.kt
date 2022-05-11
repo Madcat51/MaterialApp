@@ -94,7 +94,13 @@ class PictureOfTheDayFragment : Fragment(R.layout.fragment_picture_of_the_day) {
                 }
             }
         }
-
+        viewLifecycleOwner.lifecycle.coroutineScope.launchWhenStarted {
+            viewModel.explanation.collect { explanation ->
+                explanation.let {
+                    binding.explanationTextPictureEditText.setText(it)
+                }
+            }
+        }
     }
 }
 

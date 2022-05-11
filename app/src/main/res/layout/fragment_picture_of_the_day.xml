@@ -47,7 +47,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin" />
-
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/explanation_text_picture_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin" />
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/input_wiki_text_edit_text"
         android:layout_width="match_parent"

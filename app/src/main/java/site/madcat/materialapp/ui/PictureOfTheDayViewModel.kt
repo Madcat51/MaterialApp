@@ -1,8 +1,6 @@
 package site.madcat.materialapp.ui
 
-import android.content.Intent
-import android.net.Uri
-import androidx.core.content.ContextCompat.startActivity
+
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -12,6 +10,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import site.madcat.materialapp.domain.NasaRepo
 import java.io.IOException
+
 
 class MainViewModel(private val repo: NasaRepo) : ViewModel() {
     private val _title: MutableSharedFlow<String> =MutableSharedFlow()
@@ -23,12 +22,12 @@ class MainViewModel(private val repo: NasaRepo) : ViewModel() {
     private val _error: MutableSharedFlow<String> =MutableSharedFlow()
     val error: Flow<String> =_error
 
-    fun requestPictureOfTheDay() {
+    fun requestPictureOfTheDay(day: String) {
         viewModelScope.launch {
             try {
-                val url=repo.pictureOfTheDay().url
+                val url=repo.pictureOfTheDay(day).url
                 _image.emit(url)
-                val titlePicture=repo.pictureOfTheDay().title
+                val titlePicture=repo.pictureOfTheDay(day).title
                 _title.emit(titlePicture)
             } catch (exc: IOException) {
                 _error.emit("Error")

@@ -8,7 +8,7 @@ data class Epic(
     val natural: String,
 
     @SerializedName("natural/date")
-    val naturaldate:Date,
+    val naturaldate: Date,
 
     @SerializedName("natural/all")
     val naturalall: String,
@@ -20,7 +20,7 @@ data class Epic(
     val enhanced: String,
 
     @SerializedName("enhanced/date")
-    val enhanceddate:Date,
+    val enhanceddate: Date,
 
     @SerializedName("enhanced/all")
     val enhancedall: String,
@@ -28,4 +28,4 @@ data class Epic(
     @SerializedName("enhanced/available")
     val enhancedavailable: String,
 
-)
+    )

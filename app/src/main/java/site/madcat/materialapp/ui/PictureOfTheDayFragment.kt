@@ -21,7 +21,6 @@ import java.time.format.DateTimeFormatter
 
 
 class PictureOfTheDayFragment : Fragment(R.layout.fragment_picture_of_the_day) {
-
     private val viewModel: MainViewModel by viewModels {
         MainViewModelFactory(NasaRepoImpl())
     }

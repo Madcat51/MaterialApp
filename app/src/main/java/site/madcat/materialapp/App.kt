@@ -6,7 +6,7 @@ import site.madcat.materialapp.domain.NasaRepoImpl
 
 class App : Application() {
 
-    val repo=NasaRepoImpl()
+
 
 }
 

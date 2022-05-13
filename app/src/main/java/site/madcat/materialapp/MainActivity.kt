@@ -1,11 +1,13 @@
 package site.madcat.materialapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
-
 import site.madcat.materialapp.databinding.ActivityMainBinding
 import site.madcat.materialapp.ui.OtherFragment
 import site.madcat.materialapp.ui.PictureOfTheDayFragment
@@ -18,15 +20,24 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
         binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        setSupportActionBar(binding.toolbar)
         if (savedInstanceState == null) {
             loadFragment(PictureOfTheDayFragment())
         }
         initNavigation()
 
     }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+
 
     fun initNavigation() {
         bottomNavigationItemView=binding.navView
@@ -35,10 +46,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_picture_of_the_day -> {
                     loadFragment(PictureOfTheDayFragment())
                 }
-                R.id.navigation_other_fragment-> {
+                R.id.navigation_other_fragment -> {
                     loadFragment(OtherFragment())
                 }
-
             }; true
         }
     }

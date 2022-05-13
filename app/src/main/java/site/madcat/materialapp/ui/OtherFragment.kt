@@ -23,6 +23,7 @@ class OtherFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_other, container, false)
     }
 
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel=ViewModelProvider(this).get(OtherViewModel::class.java)

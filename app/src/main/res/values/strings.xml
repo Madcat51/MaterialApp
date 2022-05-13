@@ -8,4 +8,7 @@
     <string name="today">Сегодня</string>
     <string name="yesterday">Вчера</string>
     <string name="before_yesterday">Позавчера</string>
+
+    <string name="action_settings">Настройки</string>
+
 </resources>

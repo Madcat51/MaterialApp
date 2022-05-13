@@ -7,6 +7,21 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:orientation="vertical">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.Menutest.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tolbar_height"
+            android:background="@color/dark_gray"
+            app:popupTheme="@style/Theme.Menutest.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
 <FrameLayout
     android:id="@+id/fragment_container_view"
     android:layout_width="match_parent"

@@ -42,7 +42,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/today" />
-
             </com.google.android.material.chip.ChipGroup>
 
             <ImageView
@@ -50,7 +49,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin" />
-
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/title_text_picture_edit_text"
@@ -76,8 +74,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin"
-                android:textColor="?attr/colorTextButton"
-                android:text="@string/wikibutton" />
+                android:text="@string/wikibutton"
+                android:textColor="?attr/colorTextButton" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

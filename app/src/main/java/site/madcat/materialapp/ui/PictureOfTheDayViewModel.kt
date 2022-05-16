@@ -14,7 +14,7 @@ import java.io.IOException
 
 class MainViewModel(private val repo: NasaRepo) : ViewModel() {
     private val _explanation: MutableSharedFlow<String> =MutableSharedFlow()
-    val explanation :Flow<String> =_explanation
+    val explanation: Flow<String> =_explanation
 
     private val _title: MutableSharedFlow<String> =MutableSharedFlow()
     val title: Flow<String> =_title

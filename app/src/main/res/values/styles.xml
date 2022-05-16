@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Text_Color_Blue">
+    <style name="TextColorBlue">
         <item name="android:textColor">@color/blue</item>
     </style>
-    <style name="Text_Color_Red">
+    <style name="TextColorRed">
         <item name="android:textColor">@color/red</item>
     </style>
 
-    <style name="Text_Size_Small">
+    <style name="TextSizeSmall">
         <item name="android:textSize">@dimen/small_text</item>
     </style>
-    <style name="Text_Size_Medium">
+    <style name="TextSizeMedium">
         <item name="android:textSize">@dimen/medium_text</item>
     </style>
 

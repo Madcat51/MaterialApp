@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Text_Color_Blue">
+        <item name="android:textColor">@color/blue</item>
+    </style>
+    <style name="Text_Color_Red">
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="Text_Size_Small">
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
+    <style name="Text_Size_Medium">
+        <item name="android:textSize">@dimen/medium_text</item>
+    </style>
+
+</resources>

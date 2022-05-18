@@ -11,7 +11,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.preference.PreferenceManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import site.madcat.materialapp.databinding.ActivityMainBinding
-import site.madcat.materialapp.ui.OtherFragment
+import site.madcat.materialapp.ui.MarsPhotoFragment
 import site.madcat.materialapp.ui.PictureOfTheDayFragment
 
 
@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             loadFragment(PictureOfTheDayFragment())
         }
-
         initNavigation()
     }
 
@@ -81,7 +80,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.navigation_other_fragment -> {
                     loadFragment(
-                        OtherFragment()
+                        MarsPhotoFragment()
                     )
                 }
             }; true

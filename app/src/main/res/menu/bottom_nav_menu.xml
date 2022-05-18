@@ -8,5 +8,5 @@
     <item
         android:id="@+id/navigation_other_fragment"
         android:icon="@drawable/ic_baseline_browser_not_supported_24"
-        android:title="@string/title_other_fragment" />
+        android:title="@string/title_picture_of_the_mars" />
 </menu>

@@ -27,7 +27,13 @@ class MarsPhotoViewModel(private val repository: NasaRepo) : ViewModel() {
     fun requestPhotoOfTheMars() {
         viewModelScope.launch {
 
+            viewModelScope.launch {
+                try {
 
+                } catch (exc: IOException) {
+                    _error.emit("Error")
+                }
+            }
 
 
         }

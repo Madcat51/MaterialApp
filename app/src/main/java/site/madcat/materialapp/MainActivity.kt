@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             loadFragment(PictureOfTheDayFragment())
         }
+
         initNavigation()
     }
 

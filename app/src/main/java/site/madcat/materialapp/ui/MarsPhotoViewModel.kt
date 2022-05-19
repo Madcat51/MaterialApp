@@ -20,23 +20,19 @@ class MarsPhotoViewModel(private val repository: NasaRepo) : ViewModel() {
     private val _image: MutableStateFlow<String?> =MutableStateFlow(null)
     val image: Flow<String?> =_image
 
-    private val _error: MutableSharedFlow<String> =MutableSharedFlow()
-    val error: Flow<String> =_error
+    private val _message: MutableSharedFlow<String> =MutableSharedFlow()
+    val message: Flow<String> =_message
 
 
     fun requestPhotoOfTheMars() {
-        viewModelScope.launch {
-
             viewModelScope.launch {
                 try {
-
+                    _message.emit("Ok")
                 } catch (exc: IOException) {
-                    _error.emit("Error")
+                    _message.emit("Error")
                 }
             }
 
-
-        }
 
     }
 }

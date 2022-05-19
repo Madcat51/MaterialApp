@@ -45,7 +45,7 @@ class MarsPhotoFragment : Fragment() {
 
 
         viewLifecycleOwner.lifecycle.coroutineScope.launchWhenStarted {
-            MarsPhotoViewModel.error.collect {
+            MarsPhotoViewModel.message.collect {
                 Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
             }
         }

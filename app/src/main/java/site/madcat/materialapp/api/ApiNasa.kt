@@ -12,8 +12,7 @@ interface ApiNasa {
     ): PictureOfTheDay
 
 
-    @GET("EPIC/api/natural/images")
-    suspend fun getImageOfEpic(@Query("api_key") key: String): Epic
+
 
     @GET("mars-photos/api/v1/rovers/curiosity/photos")
     suspend fun getImageOfMars(

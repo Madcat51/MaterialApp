@@ -12,6 +12,7 @@ import androidx.preference.PreferenceManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import site.madcat.materialapp.databinding.ActivityMainBinding
 import site.madcat.materialapp.ui.MarsPhotoFragment
+
 import site.madcat.materialapp.ui.PictureOfTheDayFragment
 
 

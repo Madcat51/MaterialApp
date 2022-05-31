@@ -12,9 +12,9 @@ import site.madcat.materialapp.domain.NasaRepo
 import java.io.IOException
 
 
-class MainViewModel(private val repo: NasaRepo) : ViewModel() {
+class PictureOfTheDayViewModel(private val repo: NasaRepo) : ViewModel() {
     private val _explanation: MutableSharedFlow<String> =MutableSharedFlow()
-    val explanation :Flow<String> =_explanation
+    val explanation: Flow<String> =_explanation
 
     private val _title: MutableSharedFlow<String> =MutableSharedFlow()
     val title: Flow<String> =_title
@@ -43,6 +43,6 @@ class MainViewModel(private val repo: NasaRepo) : ViewModel() {
 }
 
 class MainViewModelFactory(private val repo: NasaRepo) : ViewModelProvider.Factory {
-    override fun <T : ViewModel> create(modelClass: Class<T>): T=MainViewModel(repo) as T
+    override fun <T : ViewModel> create(modelClass: Class<T>): T=PictureOfTheDayViewModel(repo) as T
 
 }

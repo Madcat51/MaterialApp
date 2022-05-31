@@ -12,10 +12,10 @@ interface ApiNasa {
     ): PictureOfTheDay
 
 
-    @GET("EPIC/api/natural")
-    suspend fun getImageOfEpic(@Query("api_key") key: String): Epic
+    @GET("mars-photos/api/v1/rovers/curiosity/photos?page=1")
+    suspend fun getImageOfMars(
+        @Query("api_key") string: String,
+        @Query("earth_date") earthDate: String
+    ): ReturnPackagePhoto
 
 }
-
-
-//https://api.nasa.gov/planetary/apod?date=2020-02-01&api_key=YUOR_KEY

@@ -1,11 +1,11 @@
 package site.madcat.materialapp.domain
 
-import site.madcat.materialapp.api.Epic
+
 import site.madcat.materialapp.api.PictureOfTheDay
+import site.madcat.materialapp.api.ReturnPackagePhoto
+
 
 interface NasaRepo {
     suspend fun pictureOfTheDay(day: String): PictureOfTheDay
-
-
-    suspend fun getImageOfEpic(): Epic
+    suspend fun photoMars(day: String): ReturnPackagePhoto
 }

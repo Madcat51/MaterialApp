@@ -5,8 +5,8 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import site.madcat.materialapp.api.ApiNasa
-
 import site.madcat.materialapp.api.PictureOfTheDay
+import site.madcat.materialapp.api.ReturnPackagePhoto
 
 
 class NasaRepoImpl : NasaRepo {
@@ -28,9 +28,8 @@ class NasaRepoImpl : NasaRepo {
     override suspend fun pictureOfTheDay(day: String): PictureOfTheDay=
         api.pictureOfTheDay(day, "wWBRoN1LSXiTHPye4LPg51NzWSeUmu0HOtd8yNmc")
 
-
-
+    override suspend fun photoMars(day: String): ReturnPackagePhoto=
+        api.getImageOfMars("wWBRoN1LSXiTHPye4LPg51NzWSeUmu0HOtd8yNmc", day)
 
 
 }
-//https://api.nasa.gov/planetary/apod?date=2022-05-06&api_key=wWBRoN1LSXiTHPye4LPg51NzWSeUmu0HOtd8yNmc
